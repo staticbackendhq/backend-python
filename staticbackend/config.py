@@ -1,7 +1,6 @@
 """Configure for StaticBackend client."""
 
 from pydantic import BaseModel, Field, HttpUrl, validator
-from pydantic.utils import validate_field_name
 
 
 class Config(BaseModel):
