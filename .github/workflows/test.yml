@@ -24,8 +24,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.6", "3.7", "3.8", "3.9", "3.10-dev"]
-        os: [ubuntu-latest, macOS-latest]
+        python-version: ["3.6", "3.7", "3.8", "3.9"]
+        os: [ubuntu-latest]
 
     steps:
       - uses: actions/checkout@v2
@@ -37,38 +37,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade poetry tox
+          python -m pip install --upgrade poetry tox pytest
           poetry install
       - name: Unit tests
         run: |
           tox -e ci-py -- -v --color=yes
-      - name: Publish coverage to Coveralls
-        # If pushed / is a pull request against main repo AND
-        # we're running on Linux (this action only supports Linux)
-        if:
-          ((github.event_name == 'push' && github.repository == 'psf/black') ||
-          github.event.pull_request.base.repo.full_name == 'psf/black') && matrix.os ==
-          'ubuntu-latest'
-
-        uses: AndreMiras/coveralls-python-action@v20201129
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          parallel: true
-          flag-name: py${{ matrix.python-version }}-${{ matrix.os }}
-          debug: true
-
-  coveralls-finish:
-    needs: build
-    # If pushed / is a pull request against main repo
-    if:
-      (github.event_name == 'push' && github.repository == 'psf/black') ||
-      github.event.pull_request.base.repo.full_name == 'psf/black'
-
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Coveralls finished
-        uses: AndreMiras/coveralls-python-action@v20201129
-        with:
-          parallel-finished: true
-          debug: true
