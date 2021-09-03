@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "staticbackend"
+version = "0.1.0"
+description = "StaticBackend Python client"
+authors = ["ipfans <363344+ipfans@users.noreply.github.com>"]
+license = "MIT License"
+
+[tool.poetry.dependencies]
+python = "^3.6.2"
+httpx = "^0.19.0"
+asgiref = "^3.4.1"
+pydantic = "^1.8.2"
+
+[tool.poetry.dev-dependencies]
+black = "^21.8b0"
+isort = "^5.9.3"
+mypy = "^0.910"
+pylama = "^7.7.1"
+pydocstyle = "^6.1.1"
+pycodestyle = "^2.7.0"
+flake8 = "^3.9.2"
+pylint = "^2.10.2"
+radon = "^5.1.0"
+tox = "^3.24.3"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "aliyun"
+url = "https://mirrors.aliyun.com/pypi/simple/"
+default = true
