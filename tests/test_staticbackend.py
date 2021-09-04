@@ -1,11 +1,19 @@
 import unittest
 
-from staticbackend import StaticBackend, Config
+from pydantic import ValidationError
+from staticbackend import Config, StaticBackend
 
 
 class TestStaticBackend(unittest.TestCase):
-    def test_login(self):
-        conf = Config(api_token="123456", endpoint="https://na1.staticbackend.com")
+    def test_login(self) -> None:
+        conf = Config(api_token="foobar", endpoint="https://na1.staticbackend.com")
         backend = StaticBackend(conf)
-        backend.login("test", "test")
-        self.assertTrue(backend.is_logged_in())
+
+        # validate email address.
+        with self.assertRaises(ValidationError):
+            backend.login("foo", "bar")  # type: ignore
+
+        try:
+            backend.login("foo@bar.com", "foobar")  # type: ignore
+        except ValidationError:
+            self.fail("Email validate should not raise an error.")
