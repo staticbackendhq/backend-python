@@ -43,14 +43,7 @@ jobs:
 
       - name: Install tox
         run: |
-          python -m pip install tox
-
-      - name: Load cached venv
-        id: cached-poetry-dependencies
-        uses: actions/cache@v2
-        with:
-          path: .tox
-          key: ${{ runner.os }}-${{ matrix.python }}-tox-${{ hashFiles('**/poetry.lock') }}
+          python -m pip install tox pytest
 
       - name: Install dependencies
         run: |
