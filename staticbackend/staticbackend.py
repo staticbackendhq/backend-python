@@ -70,7 +70,8 @@ class StaticBackend(object):
             d: Dict[str, Any] = resp.json()
             return d
         if "text/plain" in resp.headers["content-type"]:
-            return resp.text
+            text: str = resp.text
+            return text
         return None
 
     def _user(self, uri: str, email: str, password: str) -> str:

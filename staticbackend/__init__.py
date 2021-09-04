@@ -5,4 +5,4 @@ from .staticbackend import StaticBackend
 from .errors import ValidationError
 from .version import __version__
 
-__all__ = ["ValidationError", "__version__"]
+__all__ = ["ValidationError", "__version__", "Config", "StaticBackend"]
