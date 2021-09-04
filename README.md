@@ -20,6 +20,13 @@ TBD.
     - [x] Register
     - [x] Login
     - [x] Reset Password
+- [x] Database
+    - [x] Create a document
+    - [x] List documents
+    - [x] Get a document
+    - [x] Query for documents
+    - [x] Update a document
+    - [x] Delete documents
 
 ## License
 

@@ -1,15 +1,29 @@
 """User management."""
 
+from functools import lru_cache
 from typing import Any
 
 from httpx import Client
 
 from .base import Base
+from .database import Database
+
+
+class LoginState(object):
+    def __init__(self, client: Client, token: str) -> None:
+        super().__init__()
+        self.client = client
+        self.token = token
+
+    @property  # type: ignore
+    @lru_cache()
+    def database(self) -> Database:
+        return Database(self.client, self.token)
 
 
 class User(Base):
     def __init__(self, client: Client) -> None:
-        super().__init__(client)
+        super().__init__(client, None)
 
     def _user(self, uri: str, email: str, password: str) -> str:
         resp: Any = self._request(uri, {"email": email, "password": password})
@@ -72,3 +86,6 @@ class User(Base):
         return self._reset(
             "/password/reset", {"email": email, "code": code, "password": password}
         )
+
+    def state(self, token: str) -> LoginState:
+        return LoginState(self.client, token)

@@ -1,6 +1,6 @@
 """."""
 
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, Optional, Union, List
 
 from httpx import Client
 
@@ -8,22 +8,26 @@ from .errors import AuthencationError, HTTPRequestError
 
 
 class Base(object):
-    def __init__(self, client: Client) -> None:
+    def __init__(self, client: Client, token: Optional[str]) -> None:
         super().__init__()
+        self.token = token
         self.client = client
 
     def _request(
-        self, uri: str, body: Dict[str, Any], token: Optional[str] = None
+        self,
+        uri: str,
+        body: Union[Dict[str, Any], List[Dict[str, Any]], None] = None,
+        method: str = "post",
     ) -> Union[Dict[str, Any], str, None]:
         """
         Make a request to the StaticBackend API.
         """
 
         headers = None
-        if token is not None:
-            headers = {"Authorization": f"Bearer {token}"}
+        if self.token is not None:
+            headers = {"Authorization": f"Bearer {self.token}"}
         try:
-            resp = self.client.post(uri, json=body, headers=headers)
+            resp = self.client.request(method, uri, json=body, headers=headers)
         except Exception as e:
             raise HTTPRequestError(f"{e}") from e
 
