@@ -1,6 +1,6 @@
 # backend-python
 
-[StaticBackend](https://staticbackend.com/) Python 3 client.
+[StaticBackend](https://staticbackend.com/) (WIP) Python 3 client.
 
 ## Requirements
 
@@ -16,10 +16,10 @@ TBD.
 
 ## Features
 
-- [ ] User Management
+- [x] User Management
     - [x] Register
     - [x] Login
-    - [ ] Reset Password
+    - [x] Reset Password
 
 ## License
 
