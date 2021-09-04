@@ -1,6 +1,6 @@
 import unittest
 
-from pydantic import ValidationError
+from staticbackend.errors import ValidationError
 
 from staticbackend.config import Config
 

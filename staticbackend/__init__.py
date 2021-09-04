@@ -1,3 +1,8 @@
 """StaticBackend Python 3 client."""
 
-__version__ = "0.1.0"
+from .config import Config
+from .staticbackend import StaticBackend
+from .errors import ValidationError
+from .version import __version__
+
+__all__ = ["ValidationError", "__version__"]

@@ -14,6 +14,13 @@ TBD.
 
 TBD.
 
+## Features
+
+- [ ] User Management
+    - [x] Register
+    - [x] Login
+    - [ ] Reset Password
+
 ## License
 
 MIT
