@@ -7,6 +7,8 @@ from httpx import Client
 
 from .base import Base
 from .database import Database
+from .forms import Form
+from .storage import Storage
 
 
 class LoginState(object):
@@ -19,6 +21,16 @@ class LoginState(object):
     @lru_cache()
     def database(self) -> Database:
         return Database(self.client, self.token)
+
+    @property  # type: ignore
+    @lru_cache()
+    def forms(self) -> Form:
+        return Form(self.client, self.token)
+
+    @property  # type: ignore
+    @lru_cache()
+    def storage(self) -> Storage:
+        return Storage(self.client, self.token)
 
 
 class User(Base):

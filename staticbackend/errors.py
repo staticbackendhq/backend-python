@@ -1,4 +1,4 @@
-"""."""
+"""Errors."""
 
 from pydantic import ValidationError
 
