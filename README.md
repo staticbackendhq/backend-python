@@ -27,6 +27,10 @@ TBD.
     - [x] Query for documents
     - [x] Update a document
     - [x] Delete documents
+- [x] Storage
+    - [x] Upload files
+- [x] Forms
+    - [x] Submit HTML forms
 
 ## License
 
