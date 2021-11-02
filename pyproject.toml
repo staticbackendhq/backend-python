@@ -1,9 +1,12 @@
 [tool.poetry]
 name = "staticbackend"
-version = "0.1.0"
+version = "0.1.1"
 description = "StaticBackend Python client"
 authors = ["ipfans <363344+ipfans@users.noreply.github.com>"]
 license = "MIT License"
+readme = "README.md"
+homepage = "https://staticbackend.com/"
+repository = "https://github.com/staticbackendhq/backend-python"
 
 [tool.poetry.dependencies]
 python = "^3.6.2"
