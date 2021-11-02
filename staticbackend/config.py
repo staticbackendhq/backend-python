@@ -9,7 +9,7 @@ class Config(BaseModel):
     api_token: str = Field(..., title="API Token for StaticBackend")
     root_token: str = Field(..., title="Root Token for StaticBackend")
     endpoint: HttpUrl = Field(
-        default="http://localhost:8099", title="StaticBackend API endpoint"
+        default="https://na1.staticbackend.com", title="StaticBackend API endpoint"
     )
 
     @validator("api_token")
