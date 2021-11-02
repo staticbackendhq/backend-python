@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field, HttpUrl, validator
 class Config(BaseModel):
     """Configure staticbackend."""
 
-    api_token: str = Field(..., title="API Token for StaticBackend")
+    api_token: str = Field(..., title="SB Public Token for StaticBackend")
     root_token: str = Field(..., title="Root Token for StaticBackend")
     endpoint: HttpUrl = Field(
         default="https://na1.staticbackend.com", title="StaticBackend API endpoint"
