@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "staticbackend"
+version = "0.1.0"
+description = "StaticBackend Python client"
+authors = ["ipfans <363344+ipfans@users.noreply.github.com>"]
+license = "MIT License"
+
+[tool.poetry.dependencies]
+python = "^3.6.2"
+httpx = "^0.19.0"
+asgiref = "^3.4.1"
+pydantic = "^1.8.2"
+email-validator = "^1.1.3"
+mkdocs-material = "^7.3.6"
+
+[tool.poetry.dev-dependencies]
+black = "*"
+isort = "*"
+mypy = "*"
+pylama = "*"
+flake8 = "*"
+tox = "^3.24.3"
+pytest = "^6.2.5"
+pyupgrade = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

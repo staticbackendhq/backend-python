@@ -1,0 +1,14 @@
+site_name: StaticBackend Python Client
+theme:
+  name: material
+copyright: "Copyright &copy; ipfans 2021-"
+markdown_extensions:
+  - abbr
+  - admonition
+  - def_list
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.snippets
+  - pymdownx.tasklist

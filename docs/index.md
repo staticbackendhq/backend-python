@@ -1,12 +1,6 @@
-# backend-python
+# Welcome to StaticBackend Python Client
 
-[StaticBackend](https://staticbackend.com/) Python 3 client.
-
-## Requirements
-
-CPython 3.6.2+
-
-## Installatin
+## Install
 
 ```
 pip install staticbackend
