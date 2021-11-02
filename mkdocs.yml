@@ -2,13 +2,25 @@ site_name: StaticBackend Python Client
 theme:
   name: material
 copyright: "Copyright &copy; ipfans 2021-"
+nav:
+  - Home: index.md
+  - Getting Started: quickstart.md
+  - Configure: config.md
+  - StaticBackend: staticbackend.md
+plugins:
+  - search
 markdown_extensions:
   - abbr
   - admonition
   - def_list
+  - tables
   - pymdownx.highlight
   - pymdownx.inlinehilite
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.snippets
-  - pymdownx.tasklist
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg

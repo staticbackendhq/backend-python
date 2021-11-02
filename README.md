@@ -30,22 +30,19 @@ print(docs)
 
 ## Features
 
-- [x] User Management
-    - [x] Register
-    - [x] Login
-    - [x] Reset Password
-- [x] Database
-    - [x] Create a document
-    - [x] List documents
-    - [x] Get a document
-    - [x] Query for documents
-    - [x] Update a document
-    - [x] Delete documents
-- [x] Storage
-    - [x] Upload files
-- [ ] Forms
-    - [ ] Submit HTML forms
-- [ ] Websocket
+- User Management
+    - Register
+    - Login
+    - Reset Password
+- Database
+    - Create a document
+    - List documents
+    - Get a document
+    - Query for documents
+    - Update a document
+    - Delete documents
+- Storage
+    - Upload files
 
 ## License
 
