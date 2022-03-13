@@ -26,8 +26,10 @@ class Database(Base):
         """Create a document."""
         resp: Any = self._request(f"/db/{repo}", body=data)
         return resp  # type: ignore
-    
-    def bulk_create_documents(self, repo: str, data: List[Dict[str, Any]]) -> Dict[str, Any]:
+
+    def bulk_create_documents(
+        self, repo: str, data: List[Dict[str, Any]]
+    ) -> Dict[str, Any]:
         """Create documents in bulk."""
         resp: Any = self._request(f"/db/{repo}?bulk=1", body=data)
         return resp  # type: ignore
@@ -67,11 +69,8 @@ class Database(Base):
     def delete_document(self, repo: str, doc_id: str) -> int:
         resp: Any = self._request(f"/db/{repo}/{doc_id}", method="delete")
         return int(resp)
-    
-    def increment(self, repo: str, doc_id: str, field: str, range: int):
-        data = {
-            "field": field,
-            "range": range
-        }
-        resp: any = self._request(f"/inc/{repo}/{doc_id}", body=data)
+
+    def increment(self, repo: str, doc_id: str, field: str, range: int) -> Any:
+        data = {"field": field, "range": range}
+        resp: Any = self._request(f"/inc/{repo}/{doc_id}", body=data)
         return resp
